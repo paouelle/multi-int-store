@@ -1,0 +1,10 @@
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    com.connexta: DEBUG
+    org:
+      springframework:
+        web:
+          filter:
+            CommonsRequestLoggingFilter DEBUG:
+  maximumRequestPayloadBytes: 1048576 #One megabyte

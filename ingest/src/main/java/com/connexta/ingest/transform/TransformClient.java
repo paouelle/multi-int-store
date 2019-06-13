@@ -8,6 +8,7 @@ package com.connexta.ingest.transform;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ import org.springframework.web.client.RestTemplate;
 public class TransformClient {
 
   private final RestTemplate restTemplate;
-  private final URI transformEndpoint = new URI("TODO");
+  @Setter private final URI transformEndpoint = new URI("http://TODO");
 
   @Autowired
   public TransformClient(RestTemplate restTemplate) throws URISyntaxException {

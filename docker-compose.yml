@@ -45,9 +45,9 @@ services:
     command:
       - "--aws.s3.secret.file=/secrets/aws_s3_secret.sec"
       - "--aws.s3.access.file=/secrets/aws_s3_access.sec"
-      - "--aws.s3.endpointUrl=TODO"
+      - "--aws.s3.endpointUrl=http://s3.us-gov-west-1.amazonaws.com/"
       - "--aws.s3.bucket.quarantine=ingest-quarantine"
-      - "--aws.s3.region=TODO"
+      - "--aws.s3.region=us-gov-west-1"
   multi-int-store:
     image: ${REGISTRY:-docker.io}/cnxta/cdr-multi-int-store:0.1.0-SNAPSHOT
     hostname: cdr-store
