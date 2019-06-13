@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.filter.CommonsRequestLoggingFilter;
 
 @Configuration
 @EnableAutoConfiguration
@@ -29,15 +30,15 @@ public class ApplicationConfiguration {
     return builder.build();
   }
 
-  //  @Bean
-  //  public CommonsRequestLoggingFilter requestLoggingFilter() {
-  //    final CommonsRequestLoggingFilter loggingFilter = new CommonsRequestLoggingFilter();
-  //    loggingFilter.setIncludeClientInfo(true);
-  //    loggingFilter.setIncludeQueryString(true);
-  //    loggingFilter.setIncludePayload(true);
-  //    loggingFilter.setIncludeHeaders(true);
-  //    loggingFilter.setAfterMessagePrefix("Inbound Request: ");
-  //    loggingFilter.setMaxPayloadLength(maximumPayloadBytes);
-  //    return loggingFilter;
-  //  }
+    @Bean
+    public CommonsRequestLoggingFilter requestLoggingFilter() {
+      final CommonsRequestLoggingFilter loggingFilter = new CommonsRequestLoggingFilter();
+      loggingFilter.setIncludeClientInfo(true);
+      loggingFilter.setIncludeQueryString(true);
+      loggingFilter.setIncludePayload(true);
+      loggingFilter.setIncludeHeaders(true);
+      loggingFilter.setAfterMessagePrefix("Inbound Request: ");
+      loggingFilter.setMaxPayloadLength(maximumPayloadBytes);
+      return loggingFilter;
+    }
 }
