@@ -8,3 +8,4 @@ logging:
           filter:
             CommonsRequestLoggingFilter DEBUG:
   maximumRequestPayloadBytes: 1048576 #One megabyte
+
