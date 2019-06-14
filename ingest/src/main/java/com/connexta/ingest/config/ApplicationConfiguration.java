@@ -24,21 +24,18 @@ public class ApplicationConfiguration {
 
   @Bean
   public RestTemplate restTemplate(RestTemplateBuilder builder) {
-    // Set buffering so the HTTP message body can be read twice.
-    builder.requestFactory(BufferingClientHttpRequestFactory.class);
-    builder.additionalInterceptors(new RequestResponseLoggingInterceptor());
     return builder.build();
   }
 
-    @Bean
-    public CommonsRequestLoggingFilter requestLoggingFilter() {
-      final CommonsRequestLoggingFilter loggingFilter = new CommonsRequestLoggingFilter();
-      loggingFilter.setIncludeClientInfo(true);
-      loggingFilter.setIncludeQueryString(true);
-      loggingFilter.setIncludePayload(true);
-      loggingFilter.setIncludeHeaders(true);
-      loggingFilter.setAfterMessagePrefix("Inbound Request: ");
-      loggingFilter.setMaxPayloadLength(maximumPayloadBytes);
-      return loggingFilter;
-    }
+  @Bean
+  public CommonsRequestLoggingFilter requestLoggingFilter() {
+    final CommonsRequestLoggingFilter loggingFilter = new CommonsRequestLoggingFilter();
+    loggingFilter.setIncludeClientInfo(true);
+    loggingFilter.setIncludeQueryString(true);
+    loggingFilter.setIncludePayload(true);
+    loggingFilter.setIncludeHeaders(true);
+    loggingFilter.setAfterMessagePrefix("Inbound Request: ");
+    loggingFilter.setMaxPayloadLength(maximumPayloadBytes);
+    return loggingFilter;
+  }
 }
